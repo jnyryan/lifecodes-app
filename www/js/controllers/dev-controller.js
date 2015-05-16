@@ -1,7 +1,7 @@
 angular.module('app.controllers')
 
 
-.controller('DevDetailCtrl', function($scope, PopupService, BarcodeRepository, RefreshService) {
+.controller('DeveloperCtrl', function($scope, PopupService, BarcodeRepository, RefreshService) {
   $scope.status = "working";
 
   $scope.insert = function(){

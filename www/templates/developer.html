@@ -1,0 +1,50 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Developer Options">
+  <ion-content class="padding">
+    Dev Stuff: {{status}}
+    <div class="button-bar">
+      <a class="button button-block button-positive" ng-click='insert()'>
+        Insert
+      </a>
+    </div>
+    <div class="button-bar">
+      <a class="button button-block button-positive" ng-click='getBarcodeCount()'>
+        Count Data
+      </a>
+    </div>
+    <div class="button-bar">
+      <a class="button button-block button-positive" ng-click='getAllBarcodeData()'>
+        Get All
+      </a>
+    </div>
+
+    <div class="item item-divider">
+      <i class="icon ion-stats-bars"></i>
+      Barcode Data
+      <span class="badge badge-energized">{{rowCount}}</span>
+    </div>
+
+
+    <div class="row" ng-repeat="item in barcodes">
+      <div class="col">{{item.id}}</div>
+      <div class="col">{{item.name}}</div>
+      <div class="col">{{item.description}}</div>
+      <div class="col">{{item.format}}</div>
+    </div>
+<!--
+    <div class="button-bar">
+      <a class="button button-block button-positive" ng-click='initDatabase()'>
+        Init Database
+      </a>
+      <a class="button button-block button-positive" ng-click='destroyDatabase()'>
+        Destroy Database
+      </a>
+    </div>
+-->
+  </ion-content>
+</ion-view>

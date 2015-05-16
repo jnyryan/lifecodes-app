@@ -24,6 +24,7 @@ angular.module('app', ['ionic',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    DataFactory.init();
   });
 })
 
@@ -54,15 +55,26 @@ angular.module('app', ['ionic',
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
+
+  .state('app.playlists', {
+    url: "/playlists",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/playlists.html",
+        controller: 'PlaylistsCtrl'
       }
-    })
+    }
+  })
+
+  .state('app.developer', {
+    url: "/developer",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/developer.html",
+        controller: 'DeveloperCtrl'
+      }
+    }
+  })
 
   .state('app.single', {
     url: "/playlists/:playlistId",
