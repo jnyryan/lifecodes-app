@@ -1,4 +1,10 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [
+  'ngCordova',
+  'app.config',
+  'app.factories',
+  'app.services',
+  'ja.qr'
+])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal

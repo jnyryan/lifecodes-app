@@ -15,8 +15,7 @@ cd lifecodes-app
 
 bower install ngCordova
 bower install underscore
-
-bower install angular
+bower install --save angular-qr
 cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
 cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
