@@ -39,6 +39,28 @@ angular.module('app.controllers', [
   };
 })
 
+.controller('DashboardCtrl', function($scope, BarcodeRepository, RefreshService, $ionicModal) {
+  $scope.status="working";
+  BarcodeRepository.all().then(function(res) {
+    $scope.barcodes = res;
+  });
+  $scope.$on('refresh', function(event, params){
+    console.log("Refreshing View");
+    BarcodeRepository.all().then(function(res) {
+      $scope.barcodes = res;
+    });
+  });
+  /*$ionicModal.fromTemplateUrl('templates/view-barcode.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.close = function(){
+    $scope.modal.hide();
+  };
+  */
+})
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
