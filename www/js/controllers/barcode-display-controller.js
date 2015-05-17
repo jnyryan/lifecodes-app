@@ -7,16 +7,17 @@ angular.module('app.controllers')
   PopupService
 ) {
 
-  BarcodeRepository.all($stateParams.barcodeId).then(function(data){
+  BarcodeRepository.getById($stateParams.barcodeId).then(function(data){
     PopupService.Popup("Loaded!");
+    console.dir(data);
+    $scope.barcode = {
+      id: data.id,
+      name: data.name,
+      format: "EAN TEST",
+      data: data.data
+    };
   });
 
-  $scope.barcode = {
-    id: $stateParams.barcodeId,
-    name: "some name",
-    format: "EAN TEST",
-    data: "www.somewhere"
-  };
 
 
 });
