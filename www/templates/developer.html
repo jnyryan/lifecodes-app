@@ -7,17 +7,32 @@
 <ion-view view-title="Developer Options">
   <ion-content class="padding">
     Dev Stuff: {{status}}
+
+    <div class="card">
+      <div class="item item-divider">
+        Test Angular
+      </div>
+      <div class="item item-text-wrap">
+        {{status}}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Test Barcode Display
+      </div>
+      <div class="item item-text-wrap">
+        <qr text="status" size='50'>
+      </div>
+    </div>
+
     <div class="button-bar">
       <a class="button button-block button-positive" ng-click='insert()'>
         Insert
       </a>
-    </div>
-    <div class="button-bar">
       <a class="button button-block button-positive" ng-click='getBarcodeCount()'>
         Count Data
       </a>
-    </div>
-    <div class="button-bar">
       <a class="button button-block button-positive" ng-click='getAllBarcodeData()'>
         Get All
       </a>
