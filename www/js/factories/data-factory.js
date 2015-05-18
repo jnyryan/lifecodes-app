@@ -14,6 +14,7 @@ angular.module('app.factories')
             angular.forEach(table.columns, function(column) {
                 columns.push(column.name + ' ' + column.type);
             });
+            //self.executeSQL('DROP TABLE IF EXISTS ' + table.name);
             var query = 'CREATE TABLE IF NOT EXISTS ' + table.name + ' (' + columns.join(',') + ')';
             self.executeSQL(query);
             console.log('Table ' + table.name + ' initialized');
@@ -66,11 +67,14 @@ angular.module('app.factories')
         return DataFactory.executeSQL('SELECT * FROM barcodes WHERE id = ?', [id])
         .then(function(result){
             return DataFactory.fetch(result);
-        });
+        }
+        ,function(reason) {
+          console.log('Failed: ' + reason);
+        })
     };
 
-    self.insert = function(name, description, format, data) {
-        return DataFactory.executeSQL('INSERT INTO barcodes (name, description, format, data) VALUES (?,?,?,?)', [name, description, format, data])
+    self.insert = function(name, description, format, scanData) {
+        return DataFactory.executeSQL('INSERT INTO barcodes (name, description, format, scanData) VALUES (?,?,?,?)', [name, description, format, scanData])
         .then(function(result){
             return DataFactory.fetchAll(result);
         });

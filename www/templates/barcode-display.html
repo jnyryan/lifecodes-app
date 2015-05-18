@@ -2,10 +2,12 @@
   <ion-content>
     <div class="card">
       <div class="item item-divider">
-        {{barcode.name}} {{barcode.id}}
+        <h1>{{barcode.name}} {{barcode.id}}</h1>
+        <h2>{{barcode.description}}</h2>
+        <h2>{{barcode.scanData}}</h2>
       </div>
       <div class="item item-text-wrap">
-        <qr text="barcode.data" size='250'>
+      <qr text="qrCode" size='250'></qr>
       </div>
     </div>
   </ion-content>

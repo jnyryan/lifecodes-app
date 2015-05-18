@@ -9,8 +9,8 @@ angular.module('app.config', [])
                   {name: 'name', type: 'text'},
                   {name: 'description', type: 'text'},
                   {name: 'format', type: 'text'},
-                  {name: 'data', type: 'integer'},
-                  {name: 'created_date', type: 'DATETIME DEFAULT CURRENT_TIMESTAMP'}
+                  {name: 'scanData', type: 'text'},
+                  {name: 'createDate', type: 'DATETIME DEFAULT CURRENT_TIMESTAMP'}
               ]
           }
     ]

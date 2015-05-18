@@ -9,10 +9,10 @@ angular.module('app.controllers')
       name: "faheys",
       description : "a shop",
       format: "EAN TEST",
-      data: "www.ashoppe.com"
+      scanData: "www.ashoppe.com"
     };
 
-    BarcodeRepository.insert($scope.barcode.name, $scope.barcode.description, $scope.barcode.format, $scope.barcode.data).then(function(results){
+    BarcodeRepository.insert($scope.barcode.name, $scope.barcode.description, $scope.barcode.format, $scope.barcode.scanData).then(function(results){
       PopupService.Popup("Saved NEW!");
       RefreshService.refresh();
     });

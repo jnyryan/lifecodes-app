@@ -139,6 +139,7 @@
         $timeout(function(){
           scope.$watch('text', function(value, old){
             if (value !== old) {
+              console.log("in QRRRRR");
               scope.TEXT = scope.getText();
               scope.INPUT_MODE = scope.getInputMode(scope.TEXT);
               render(canvas, scope.TEXT, scope.TYPE_NUMBER, scope.CORRECTION, scope.SIZE, scope.INPUT_MODE);
