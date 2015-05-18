@@ -1,0 +1,35 @@
+<ion-view view-title="New Lifecode">
+  <ion-content>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Description</span>
+          <input type="text" ng-model="description">
+        </label>
+        <div class="item item-button-right">
+          Scan a code
+          <button class="button button-positive">
+            <i class="icon ion-qr-scanner"></i>
+          </button>
+        </div>
+        <div class="item item-button-right">
+          Enter text for a code
+          <button class="button button-positive">
+            <i class="icon ion-document-text"></i>
+          </button>
+        </div>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Save</button>
+        </label>
+      </div>
+      <div class="bar bar-footer">
+        <button class="button">Cancel</button>
+        <button class="button pull-right">Save</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

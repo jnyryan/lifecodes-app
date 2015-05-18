@@ -18,23 +18,26 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/dashboard">
-          Dashboard
+        <ion-item class="item-icon-left" menu-close href="#/app/dashboard">
+          <i class="icon ion-ios-home"></i>Dashboard
         </ion-item>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item class="item-icon-left" menu-close href="#/app/barcode-new">
+          <i class="icon ion-plus-circled"></i>Add new lifecode
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item class="item-icon-left" menu-close ng-click="login()">
+          <i class="icon ion-key"></i>Login
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
+        <ion-item class="item-icon-left" menu-close href="#/app/search">
+          <i class="icon ion-search"></i>Search
+        </ion-item>
+        <ion-item class="item-icon-left" menu-close href="#/app/browse">
           Browse
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item class="item-icon-left" menu-close href="#/app/playlists">
           Playlists
         </ion-item>
-        <ion-item menu-close href="#/app/developer">
-          Developer Options
+        <ion-item class="item-icon-left" menu-close href="#/app/developer">
+          <i class="icon ion-code-working"></i>Developer Options
         </ion-item>
       </ion-list>
     </ion-content>

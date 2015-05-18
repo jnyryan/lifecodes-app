@@ -7,7 +7,7 @@ angular.module('app.controllers')
   BarcodeRepository,
   PopupService
 ) {
-  $scope.qrCode = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
+  $scope.qrCode = "";
   BarcodeRepository.getById($stateParams.barcodeId).then(function(data){
     console.dir(data);
     $scope.barcode = {
@@ -20,4 +20,14 @@ angular.module('app.controllers')
     $scope.qrCode = $scope.barcode.scanData;
     $scope.$apply();
   });
+})
+
+.controller('BarcodeNewCtrl', function(
+  $scope,
+  $rootScope,
+  BarcodeRepository,
+  PopupService
+) {
+  $scope.name = "john";
+  $scope.description = "gym";
 });

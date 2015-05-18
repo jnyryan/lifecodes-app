@@ -13,7 +13,7 @@ angular.module('app', ['ionic',
   'app.services'
 ])
 
-.run(function($ionicPlatform, DataService, DataFactory) {
+.run(function($ionicPlatform, DataFactory) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -48,12 +48,22 @@ angular.module('app', ['ionic',
     }
   })
 
-  .state('app.barcode', {
+  .state('app.barcode-display', {
     url: "/barcode-display/:barcodeId",
     views: {
       'menuContent': {
         templateUrl: "templates/barcode-display.html",
         controller: 'BarcodeDisplayCtrl'
+      }
+    }
+  })
+
+  .state('app.barcode-new', {
+    url: "/barcode-new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/barcode-new.html",
+        controller: 'BarcodeNewCtrl'
       }
     }
   })
