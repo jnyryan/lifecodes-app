@@ -5,7 +5,8 @@ angular.module('app.controllers')
   $ionicTabsDelegate,
   PopupService,
   ScanningService,
-  BarcodeRepository
+  BarcodeRepository,
+  ScanHistoryRepository
 ) {
 
   ScanningService.scan(function(data){
@@ -32,4 +33,23 @@ angular.module('app.controllers')
     $ionicTabsDelegate.select(0);
   };
 
+})
+
+.controller('ScanHistoryCtrl', function(
+  $scope,
+  ScanHistoryRepository
+) {
+  ScanHistoryRepository.all().then(function(res) {
+    $scope.scanHistory = res;
+  });
+})
+
+.controller('ScanHistoryDisplayCtrl', function(
+  $scope,
+  $stateParams,
+  ScanHistoryRepository
+) {
+  ScanHistoryRepository.getById($stateParams.id).then(function(res) {
+    $scope.scanHistory = res;
+  });
 });

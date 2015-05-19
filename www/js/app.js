@@ -68,6 +68,26 @@ angular.module('app', ['ionic',
     }
   })
 
+  .state('app.scan-history', {
+    url: "/scan-history",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/scan-history.html",
+        controller: 'ScanHistoryCtrl'
+      }
+    }
+  })
+
+  .state('app.scan-history-display', {
+    url: "/scan-history-display/:id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/scan-history-display.html",
+        controller: 'ScanHistoryDisplayCtrl'
+      }
+    }
+  })
+
   .state('app.search', {
     url: "/search",
     views: {
