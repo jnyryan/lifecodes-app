@@ -73,8 +73,8 @@ angular.module('app.factories')
         })
     };
 
-    self.insert = function(name, description, format, scanData) {
-        return DataFactory.executeSQL('INSERT INTO barcodes (name, description, format, scanData) VALUES (?,?,?,?)', [name, description, format, scanData])
+    self.insert = function(name, description, format, scanText, scanData) {
+        return DataFactory.executeSQL('INSERT INTO barcodes (name, description, format, scanText, scanData) VALUES (?,?,?,?,?)', [name, description, format, scanText,scanData])
         .then(function(result){
             return DataFactory.fetchAll(result);
         });
@@ -82,6 +82,44 @@ angular.module('app.factories')
 
     self.size = function() {
         return DataFactory.executeSQL('select count(id) as size from barcodes;', [])
+        .then(function(result){
+            return DataFactory.fetch(result);
+        });
+    };
+
+    return self;
+})
+
+// Scan_History Repositories
+.factory('ScanHistoryRepository', function(DataFactory) {
+    var self = this;
+
+    self.all = function() {
+        return DataFactory.executeSQL('SELECT * FROM scan_history ORDER BY createDate DESC')
+        .then(function(result){
+            return DataFactory.fetchAll(result);
+        });
+    };
+
+    self.getById = function(id) {
+        return DataFactory.executeSQL('SELECT * FROM scan_history WHERE id = ?', [id])
+        .then(function(result){
+            return DataFactory.fetch(result);
+        }
+        ,function(reason) {
+          console.log('Failed: ' + reason);
+        })
+    };
+
+    self.insert = function(scanData) {
+        return DataFactory.executeSQL('INSERT INTO scan_history (scanData) VALUES (?)', [scanData])
+        .then(function(result){
+            return DataFactory.fetchAll(result);
+        });
+    };
+
+    self.size = function() {
+        return DataFactory.executeSQL('select count(id) as size from scan_history;', [])
         .then(function(result){
             return DataFactory.fetch(result);
         });

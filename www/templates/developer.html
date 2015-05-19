@@ -49,17 +49,30 @@
       <div class="col">{{item.name}}</div>
       <div class="col">{{item.description}}</div>
       <div class="col">{{item.format}}</div>
+      <div class="col">{{item.scanText}}</div>
       <div class="col">{{item.scanData}}</div>
     </div>
-<!--
+
     <div class="button-bar">
-      <a class="button button-block button-positive" ng-click='initDatabase()'>
-        Init Database
+      <a class="button button-block button-positive" ng-click='insertScanHistory()'>
+        Insert
       </a>
-      <a class="button button-block button-positive" ng-click='destroyDatabase()'>
-        Destroy Database
+      <a class="button button-block button-positive" ng-click='getScanHistoryCount()'>
+        Count Data
+      </a>
+      <a class="button button-block button-positive" ng-click='getAllScanHistoryData()'>
+        Get All
       </a>
     </div>
--->
+
+    <div class="item item-divider">
+      <i class="icon ion-stats-bars"></i>
+      Scan History Data
+      <span class="badge badge-energized">{{rowCountscanHistory}}</span>
+    </div>
+    <div class="row" ng-repeat="item in scanHistory">
+      <div class="col">{{item.scanData }}</div>
+    </div>
+
   </ion-content>
 </ion-view>

@@ -15,6 +15,7 @@ angular.module('app.controllers')
       name: data.name,
       format: "EAN TEST",
       description: data.description,
+      scanText: data.scanText,
       scanData: data.scanData
     };
     $scope.qrCode = $scope.barcode.scanData;

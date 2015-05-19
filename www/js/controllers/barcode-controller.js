@@ -18,11 +18,11 @@ angular.module('app.controllers')
   $scope.barcode = {
     name: "some name",
     format: "EAN TEST",
-    data: "www.somewhere"
+    text: "www.somewhere"
   };
 
   $scope.save = function(){
-    BarcodeRepository.insert($scope.barcode.name, $scope.barcode.format, $scope.barcode.data).then(function(data){
+    BarcodeRepository.insert($scope.barcode.name, $scope.barcode.format, $scope.barcode.text, $scope.barcode).then(function(data){
       PopupService.Popup("Saved!");
     });
   };
