@@ -20,6 +20,7 @@ bower install --save angular-qr
 cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
 cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
+cordova plugin add https://github.com/dferrell/plugins-application-preferences.git
 
 ionic platform add ios
 ionic build ios
@@ -74,7 +75,7 @@ Ionic provide a free way to share the app
 - [ionic framework api](http://ionicframework.com/docs/api/)
 - [SQLite Wrapper](https://github.com/driftyco/ng-cordova/blob/master/src/plugins/sqlite.js)
 - [Sqlite example](https://github.com/brodysoft/Cordova-SQLitePlugin/issues/171)
-
+- [Barcode Creator](http://barcode-coder.com/en/barcode-jquery-plugin-201.html)
 ## Troubleshooting
 
 ***Problem***: Build fails after camera plugin with exit code 65

@@ -68,12 +68,22 @@ angular.module('app', ['ionic',
     }
   })
 
-  .state('app.scan-history', {
-    url: "/scan-history",
+  .state('app.quick-scan', {
+    url: "/quick-scan",
     views: {
       'menuContent': {
-        templateUrl: "templates/scan-history.html",
-        controller: 'ScanHistoryCtrl'
+        templateUrl: "templates/quick-scan.html",
+        controller: 'QuickScanCtrl'
+      }
+    }
+  })
+
+  .state('app.scan-history-list', {
+    url: "/scan-history-list",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/scan-history-list.html",
+        controller: 'ScanHistoryListCtrl'
       }
     }
   })
@@ -102,6 +112,16 @@ angular.module('app', ['ionic',
     views: {
       'menuContent': {
         templateUrl: "templates/browse.html"
+      }
+    }
+  })
+
+  .state('app.settings', {
+    url: "/settings",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/settings.html",
+        controller: 'SettingsCtrl'
       }
     }
   })

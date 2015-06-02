@@ -125,5 +125,16 @@ angular.module('app.factories')
         });
     };
 
+    self.delete = function(id) {
+        return DataFactory.executeSQL('DELETE FROM scan_history WHERE id = ?', [id])
+        .then(function(result){
+            return DataFactory.fetch(result);
+        }
+        ,function(reason) {
+          console.log('Failed: ' + reason);
+        })
+    };
+
+
     return self;
 });

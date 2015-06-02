@@ -8,7 +8,7 @@ angular.module('app.controllers')
     description : "a shop",
     format: "EAN TEST",
     text: "www.ashoppe.com"
-  };
+  }; 
 
   $scope.insert = function(){
     BarcodeRepository.insert($scope.barcode.name, $scope.barcode.description, $scope.barcode.format,$scope.barcode.text, $scope.barcode).then(function(results){

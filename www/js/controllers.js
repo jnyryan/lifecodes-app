@@ -1,6 +1,7 @@
 angular.module('app.controllers', [
   'ngCordova',
   'app.config',
+  'app.directives',
   'app.factories',
   'app.services',
   'ja.qr'
@@ -59,6 +60,21 @@ angular.module('app.controllers', [
     $scope.modal.hide();
   };
   */
+})
+
+.controller('SettingsCtrl', function($scope, $cordovaPreferences) {
+
+    $scope.defaultHomeScreenPreference = $cordovaPreferences.get('DefaultHomeScreenPreference').then(function (name) {
+      $scope.defaultHomeScreenPreference = name;
+      alert(name);
+    })
+
+  $scope.setDefaultHomeScreenPreference = function () {
+    alert("Set");
+    $cordovaPreferences.set('DefaultHomeScreenPreference', 'true').then(function () {
+      console.log('successfully saved!');
+    })
+  };
 })
 
 .controller('PlaylistsCtrl', function($scope) {
