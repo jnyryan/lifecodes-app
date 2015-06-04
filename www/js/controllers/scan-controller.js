@@ -46,13 +46,24 @@ angular.module('app.controllers')
   $scope.$on('$ionicView.afterEnter', function(){
     console.log("Fired afterENTER event on QuickScan");
     ScanningService.scan(function(data){
-      console.dir(data);
-      console.log(JSON.stringify(data));
+      //console.dir(data);
+      //console.log(JSON.stringify(data));
       $scope.scanData = JSON.stringify(data);
-      ScanHistoryRepository.insert(JSON.stringify(data)).then(function(res) {
-        console.log('Saved new Scan to scan history');
-      });
-      $scope.qrCode = res.text;
+      ScanHistoryRepository.insert(JSON.stringify(data))
+        .then(function(res) {
+          console.log('Saved new Scan to scan history');
+        });
+
+      console.log("JJJ" + data.format.replace("_","").toLowerCase());
+
+      $scope.scancode = {
+        type: data.format == "QR_CODE" ? "qrcode" : "barcode",
+        format : data.format.replace("_","").toLowerCase(),
+        data: data.text,
+        height: data.format == "QR_CODE" ? "300" : 80,
+        width: data.format == "QR_CODE" ? "300" : 3,
+      };
+
       $scope.$apply();
       RefreshService.refresh();
     });

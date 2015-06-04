@@ -1,10 +1,8 @@
 angular.module('app.controllers', [
   'ngCordova',
   'app.config',
-  'app.directives',
   'app.factories',
-  'app.services',
-  'ja.qr'
+  'app.services'
 ])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -75,6 +73,12 @@ angular.module('app.controllers', [
       console.log('successfully saved!');
     })
   };
+})
+
+.controller('MenuTestCtrl', function($scope,$ionicModal){
+  $scope.click = function(){alert("cool");};
+
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {

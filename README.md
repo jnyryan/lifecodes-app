@@ -20,7 +20,6 @@ bower install --save angular-qr
 cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
 cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
-cordova plugin add https://github.com/dferrell/plugins-application-preferences.git
 
 ionic platform add ios
 ionic build ios

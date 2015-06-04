@@ -1,11 +1,35 @@
 <ion-view view-title="Quick Scan">
   <ion-content>
-    <div class="card">
-      <div class="item item-text-wrap">
-        <pre>
-          {{scanData.text}}
-        </pre>
-        <qr text="qrCode" size='150'></qr>
+
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <h2>{{scancode.type}}</h2>
+        <p>{{scancode.format}}</p>
+      </div>
+
+      <div class="item item-body">
+        <scan-code type="{{scancode.type}}" format="{{scancode.format}}" data="{{scancode.data}}" height="{{scancode.height}}" width="{{scancode.width}}"></scan-code>
+        <p>
+          {{scancode.data}}
+
+        </p>
+
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
       </div>
     </div>
   </ion-content>

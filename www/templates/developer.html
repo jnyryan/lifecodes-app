@@ -20,10 +20,11 @@
       <div class="item item-divider">
         Test Barcode Display
       </div>
-      <div class="item item-text-wrap">
-        <qr text="status" size='50'>
+      <div style="text-align:center">
+        <scan-code type="{{scancode1.type}}" format="{{scancode1.format}}" data="{{scancode1.data}}" height="{{scancode1.height}}" width="{{scancode1.width}}"></scan-code>
+        <scan-code type="{{scancode2.type}}" format="{{scancode2.format}}" data="{{scancode2.data}}" height="{{scancode2.height}}" width="{{scancode2.width}}"></scan-code>
       </div>
-      <barcode id="bcTarget"></barcode> 
+    </p>
     </div>
 
     <div class="button-bar">
@@ -43,7 +44,6 @@
       Barcode Data
       <span class="badge badge-energized">{{rowCount}}</span>
     </div>
-
 
     <div class="row" ng-repeat="item in barcodes">
       <div class="col">{{item.id}}</div>

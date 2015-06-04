@@ -1,0 +1,99 @@
+<link rel="import" href="lib/polymer.html">
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jquery-barcode.min.js"></script>
+<script type="text/javascript" src="lib/qrcode.js"></script>
+
+<polymer-element name="scan-code">
+
+  <dom-module id="scan-code">
+    <template>
+      <div id='scancode' style="text-align:center;"></div>
+    </template>
+  </dom-module>
+
+  <script>
+  Polymer({
+    is: "scan-code",
+    properties: {
+      data:   { type: String, observer: 'dataChanged'},
+      type:   { type: String, observer: 'typeChanged'},
+      format: { type: String, observer: 'formatChanged'},
+      height: { type: String, observer: 'heightChanged'},
+      width:  { type: String, observer: 'widthChanged'}
+    },
+
+    ready: function(){
+      this.generate();
+    },
+
+    dataChanged: function () {
+        this.generate();
+    },
+
+    typeChanged: function () {
+        this.generate();
+    },
+
+    formatChanged: function () {
+      this.generate();
+    },
+
+    heightChanged: function () {
+        this.generate();
+    },
+
+    widthChanged: function () {
+        this.generate();
+    },
+
+    generate : function(){
+      console.dir(this.type);
+      try{
+        if (this.type === 'barcode') {
+            this.generateBarcode();
+        }
+        else if (this.type === 'qrcode'){
+            this.generateQRcode()
+        }
+        else{
+          console.log("Not Rendering scancode");
+          var el = this.$.scancode;
+          el.innerHTML = "";
+        }
+      }
+      catch(err) {
+        console.dir(err);
+      }
+    },
+
+    generateQRcode: function(){
+      var el = this.$.scancode;
+      el.innerHTML = "";
+      var qrcode = new QRCode(el, {
+          text: this.data,
+          width: this.width,
+          height: this.height,
+          colorDark : "#000000",
+          colorLight : "#ffffff",
+          correctLevel : QRCode.CorrectLevel.H
+      });
+    },
+
+    generateBarcode: function(){
+      var el = this.$.scancode;
+      $(el).barcode(
+        {
+          code: this.data,
+          crc:false
+        },
+        this.format,
+        {
+          barWidth:this.width,
+          barHeight:this.height
+        }
+      );
+    }
+
+  });
+  </script>
+</polymer-element>
